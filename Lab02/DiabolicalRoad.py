@@ -7,11 +7,11 @@ for row in csv.DictReader(f):
     status = row['STATUS']
     zipcode = row['ZIP']
     num = row['NUMBER OF POTHOLES FILLED ON BLOCK']
-    if status == 'Open':
+    if status == 'Open' and  num != '':
         if zipcode not in potholes_by_zip:
-            potholes_by_zip[zipcode] = 1
+            potholes_by_zip[zipcode] = int(num)
         else:
-            potholes_by_zip[zipcode] += 1
+            potholes_by_zip[zipcode] += int(num)
 
 
 print('#\tZIP\tNUM_HOLES')
