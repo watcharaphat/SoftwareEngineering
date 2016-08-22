@@ -10,8 +10,10 @@ for row in csv.DictReader(f):
     if status == 'Open' and  num != '':
         if zipcode not in potholes_by_zip:
             potholes_by_zip[zipcode] = int(num)
+            print('zipcode: ' + zipcode + '\t' + 'num: ' + num)
         else:
             potholes_by_zip[zipcode] += int(num)
+            print('zipcode: ' + zipcode + '\t' + 'num: ' + num)
 
 
 print('#\tZIP\tNUM_HOLES')
