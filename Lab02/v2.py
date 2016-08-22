@@ -17,10 +17,6 @@ for row in csv.DictReader(f):
 print('#\tZIP code\tNUM_HOLES')
 
 i = 1
-for key in sorted(potholes_by_zip, key=potholes_by_zip.get, reverse=True):
-
-    if(i > 5):
-        break;
-
+for key in sorted(potholes_by_zip, key=potholes_by_zip.get, reverse=True)[0:5]:
     print('#' + str(i) + '\t' + key + '\t\t' + str(potholes_by_zip[key]))
     i += 1
