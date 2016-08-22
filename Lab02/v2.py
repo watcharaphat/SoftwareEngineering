@@ -1,5 +1,3 @@
-#5710503541 Watcharaphat Manosatiankul
-
 import csv
 f = open('311_Service_Requests_-_Pot_Holes_Reported.csv', 'r')
 
@@ -9,11 +7,11 @@ for row in csv.DictReader(f):
     status = row['STATUS']
     zipcode = row['ZIP']
     num = row['NUMBER OF POTHOLES FILLED ON BLOCK']
-    if status == 'Open' and  num != '':
+    if num != '':
         if zipcode not in potholes_by_zip:
-            potholes_by_zip[zipcode] = int(num)
+            potholes_by_zip[zipcode] = float(num)
         else:
-            potholes_by_zip[zipcode] += int(num)
+            potholes_by_zip[zipcode] += float(num)
 
 
 print('#\tZIP code\tNUM_HOLES')
